@@ -1,0 +1,617 @@
+/* @import, quando existem, devem ser o primeiro item de um arquivo CSS */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+
+
+/* Definição de variáveis */
+:root {
+    --cor-primaria: #b4f58e;
+    --cor-secundaria: #154f61;
+    --cor-secundaria-clara: #f8f3c0; /* #FFAF7B; */
+    --cor-fundo-clara: #f8f3c0 /* #4e4330 */;
+    --cor-fundo-escura: #154f61;
+    --cor-texto-claro: #f3ed97 /* #eff3b4 */;
+    --cor-texto-escura: #837709; /*#444444*/ /*Letras menores da página 2 e 3*/
+}
+
+/* CSS reset */
+* { /* Todos os elementos */
+    padding: 0;
+    margin: 0;
+    /* Exemplo de família de fonte SEM serifa
+    font-family: Calibri, Arial, sans; */
+
+    /* Exemplo de família de fonte COM serifa
+    font-family: Georgia, 'Times New Roman', serif; */
+
+    /* Exemplo de família de fonte MONOESPAÇADA 
+    font-family: Consolas, 'Courier New', monospace; */
+
+    /* Família de fontes da web (webfonts) */
+    font-family: 'Balsamiq Sans', cursive, Calibri, Arial, sans;
+    
+    font-size: 20px;
+    /* Faz com que bordas e margens sejam considerados no tamanho total do elemento */
+    box-sizing: border-box;
+    
+}
+html {                  /* Tamanho de fonte padrão do documento */
+    font-size: 17px;
+}
+
+/* Configuração de todos os links do site */
+a {
+    color: var(--cor-secundaria);
+    text-decoration: none;  /* Sem sublinhado */
+}
+
+a:hover {   /* Mouse passando em cima do link */
+    color: black;
+    /* text-decoration: underline; Volta o sublinhado */
+}
+
+header {
+    background-color: var(--cor-secundaria);
+    padding: 10px 20px;
+    display: flex; /* ícone instagran whatsapp facebook */
+    justify-content: space-between;
+    background-image: url('img/Plano\ de\ fundo2.jpg');
+    background-size: 20%;
+    background-color: #f3b95c; 
+}
+
+header #nome {
+    font-size: 50px;
+}
+
+header #abaixonome {
+    font-size: 35px;
+}
+
+header #logo2 {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+}
+
+header #logo2 {
+    width: 50px;
+    height: 50px;
+    position: absolute; 
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: transparent; 
+    padding-top: 16px;
+   
+}
+
+#social {
+    background-color: transparent;  /* Tira a cor de fundo */
+    display: flex;
+    align-items: center;
+}
+
+#social img {
+    width: 32px;
+}
+
+#social a {
+    color: var(--cor-fundo-escura);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#social a span {
+    margin-left: 6px;
+    display: none; /* Esconder o texto dos links */
+}
+
+#social a:hover span {
+    display: inline;  /* Mostra novamente o texto ao passar o mouse */  
+}
+
+nav ul li {
+    display: inline-block;  /* Deixa o menu na horizontal */
+    margin: 10px;
+}
+
+nav {
+    background-color: var(--cor-secundaria);  /* Cor do fundo */
+    color: var(--cor-texto-claro);             /* Cor do texto */
+}
+
+#menu {
+    padding: 0 20px;
+}
+
+#menu li {
+    margin: 10px 0;
+}
+
+#menu a {
+    height: 100%;
+    padding: 10px 20px;
+    color: #FFFFFF;
+    transition: 300ms;
+    background-color: var(--cor-secundaria);
+}
+
+#menu a:hover {
+    filter: brightness(0.8); /* Diminui o brilho em 20%, deixando mais escuro */
+    text-decoration: none;
+}
+
+#menu-contraido {
+    display: inline-block;
+    position: relative;
+}
+
+#menu-contraido input, #menu-contraido span {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+#menu-contraido input {
+    z-index: 100; /* Traz o input para cima */ 
+    opacity: 0; /* Esconde o input */
+    display: none;  
+}
+
+#menu-contraido span {
+    display: block;
+    background-color: var(--cor-secundaria);
+    border-radius: 4px;
+    border: 2px solid #FFFFFF;
+    background-image: url('img/menu-icon-48x48.png');
+    background-size: 40px 40px;
+    background-position: center center;
+    cursor: pointer; /* Cursor de mãozinha */
+    display: none;
+}
+
+/* Seletor ~: seleciona o próximo elemento (irmão) */
+#menu-contraido input:checked ~ span {
+    /* Troca a imagem */
+    background-image: url('img/close-icon-48x48.png');
+}
+
+#content {
+    background-color: var(--cor-fundo-clara);
+    padding: 20px;
+    /* Este elemento e seus filhos usarão flexbox */
+    display: flex;
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
+
+
+}
+
+main, aside {
+    background-color: var(--cor-texto-claro);
+    padding: 24px;
+    margin-bottom: 20px;
+    /* Bordas arrendondadas */
+    border-radius: 10px;
+    /* Sombra (drop-down shadow) */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
+    flex-grow: 1;   /* 1 unidade de largura (padrão) */
+    max-width: 100%;
+    
+}
+
+main {
+    width: 75%;
+}
+
+aside {
+    margin-left: 20px;
+    background-color: var(--cor-fundo-escura);
+    width: 25%;
+}
+
+main article, aside article {   /* article que estão de dentro de main ou aside */
+    margin: 24px 0;     /* 24px top/bottom, 0 left/right */
+}
+
+main > h1, aside > h1 {          /* Apenas os h1 que são filhos diretos de main ou aside */
+    /* Deixar o texto em maiúsculas */
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+}
+
+article > h1 {    /* Só os h1 que são filhos diretos de article */
+    margin-bottom: 6px;
+    padding-bottom: 30px;
+}
+
+article > h1 > a {
+    font-size: 1.5rem;      /* 1.5x o tamanho da fonte do elemento raiz (html) */
+}
+
+article > p {
+    color: black /* var(--cor-texto-escura); */
+}
+
+article > h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase; /* Todas as letras em maiúsculas */
+}
+/* Configuração caixas do cadastro */
+#cadastro {
+    overflow-y: hidden;   
+}
+/*
+#cad {
+    width: 90%;
+    height: 90%;
+}
+*/
+#nome {
+    width: 500px;
+}
+
+#end {
+    width: 500px;
+}
+
+#tel {
+    width: 200;
+}
+
+#num {
+    width: 100px;
+}
+
+#est {
+    width: 70px;
+}
+
+.destaque {
+    background-color: var(--cor-secundaria-clara);
+    padding: 24px;
+    border-radius: 4px;  /* Bordas LEVEMENTE arredondadas */
+}
+
+.destaque p {
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.destaque > h1 > a {
+    font-size: 2.5rem;
+}
+
+.destaque > h2 {
+    font-size: 1rem;
+}
+
+.foto-texto img {
+    width: 450px;
+    margin-right: 24px;
+    border-radius: 4px;
+    /* Largura máxima limitada à largura do pai */
+    max-width: 100%;
+    padding-bottom: 30px;
+}
+
+.foto-texto {
+    display: flex;
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
+}
+
+.individual h1 {
+    color: var(--cor-secundaria);
+    font-size: 2.5rem;
+    margin: 12px 0;
+}
+
+.individual p {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 30px;
+}
+
+.individual .foto-texto {
+    flex-direction: column;
+}
+
+.individual .foto-texto img {
+    /* Centraliza a imagem horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.individual .foto-texto p {
+    margin: 12px 0 36px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+aside > article > img {
+    display: block;
+    /* margin auto à esquerda e à direita centraliza o elemento quando este é
+       display: block */
+    margin: 0 auto;
+    border-radius: 4px; /* Borda arredondada */ 
+    /* Largura máxima é 100% da largura do pai */
+    max-width: 100%;
+    padding-top: 50px;
+    
+}
+
+aside > article > h1 > a {
+    font-size: 1rem;
+    color: #000000;
+    
+}
+
+aside > article > h1 {
+    margin-top: 6px;
+    
+}
+
+footer {
+    background-color: var(--cor-primaria);
+    padding: 24px;
+    color: #154f61;
+    display: flex;
+    flex-direction: row;
+    /* Dá espaço automaticamente entre os itens de um flexbox */
+    justify-content: space-around;
+    background-image: url('img/Plano\ de\ fundo2.jpg');
+    background-size: 20%;
+    background-color: #f3b95c; 
+}
+
+footer a {
+    color: #154f61;
+    
+}
+
+footer ul li {
+    display: inline-block;  /* Coloca os itens de uma lista na horizontal */
+    padding: 0 12px;
+    border-right: 2px solid #154f61;
+}
+
+/* Tirar a borda direita do último li */
+footer ul li:last-child {
+    border-right: none;
+}
+
+footer img {
+    width: 200px;
+    height: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+    header #logo2 {
+        padding-top: 30px;
+        background-color: transparent; 
+        width: 50%;
+    }
+}
+
+/* Regras para larguras específicas de tela */
+@media screen and (max-width: 1020px) {  /* Breakpoint (ponto de quebra) */
+    main {
+        width: 60%;
+    }
+    aside {
+        width: 40%;
+    }
+    .foto-texto {
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
+    }
+    .destaque img {
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+
+    header {
+        padding-bottom: 85px;
+        background-size: 50%;
+    }
+
+
+    header #logo2 {
+        padding-top: 80px;
+        background-color: transparent; 
+        width: 50%; 
+    }
+
+    header #logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100px;
+        height: 80px;
+    }
+    
+    footer {
+        background-size: 50%;
+    }
+
+    iframe {
+        width: 360px;
+        height: 315px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    #menu {
+        min-height: 88px;
+        padding: 0;
+    }
+    #menu ul {
+        margin-top: 50px;
+    }
+    #menu ul li {   /* Menu vertical */
+        display: block;
+        margin: 6px 0;
+    }
+    #menu a {
+        width: 100%;
+        display: block;
+    }
+    #menu-contraido {
+        margin-top: 24px;
+        width: 100%;
+    }
+    #menu-contraido ul {
+        display: none;
+    }
+    /* Mostra o botão do menu */
+    #menu-contraido input, #menu-contraido span {
+        display: block;
+        left: 20px;
+    }
+    #menu-contraido input:checked ~ ul {
+        display: block;
+    }
+
+    #cad {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #content {
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
+    }
+    main {
+        width: 100%;
+    }
+    aside {
+        margin-left: 0;
+        width: 100%;
+    }
+    aside > article > h1 {
+        text-align: center;
+    }
+    .destaque img {
+        /* Centralizar a imagem */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer > * {    /* Todos os filhos DIRETOS de footer */
+        margin-bottom: 12px;
+    }
+    footer ul li:first-child {  /* Só o primeiro (first-child) li */
+        padding-left: 0;
+    }
+    footer address {
+        text-align: right;
+    }
+
+
+    header {
+        padding-bottom: 40px;
+        background-size: 50%;
+    }
+
+
+    header #logo2 {
+        display: none;
+        
+        
+    }
+
+    header #logo {
+        width: 150px;
+        height: 100px;
+        padding-top: 0;
+        margin-top: 0;
+        top: 0;
+        width: auto;
+    }
+    
+    footer {
+        background-size: 50%;
+    }
+
+    iframe {
+        width: 360px;
+        height: 215px;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+    /*
+        A FAZER: colocar o logo principal e os ícones de redes sociais em coluna
+    */
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    header img {
+        max-width: 100%;
+    }
+    .destaque > h1 > a, .individual h1 {
+        font-size: 2rem;
+    }
+
+
+    header {
+        
+        background-size: 65%;
+
+    }
+
+
+    header #logo {
+        width: auto;
+
+    }
+    
+    footer {
+        background-size: 50%;
+    }
+    
+    #social{
+        padding-top: 90px;
+    }
+
+    iframe {
+        width: 360px;
+        height: 215px;
+    }
+}
+
+    #center {
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    }
+
+    .texto-secundario {
+    color: #FFFFFF;
+    font-size: 16pt;
+    }
+
+
+    #lista {
+    margin-left: 35%;
+    }
+
+    iframe {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    }
+
+
+    article > h3{
+        color: #154f61;
+        font-size: 1.5rem;
+        padding-top: 20px;
+    }
